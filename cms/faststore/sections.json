@@ -1,0 +1,2827 @@
+[
+  {
+    "name": "banner-carousel",
+    "requiredScopes": [
+      "home"
+    ],
+    "schema": {
+      "title": "Carrossel de Banners",
+      "description": "Carrossel de Banners",
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "title": "Título do Carrossel",
+          "type": "string"
+        },
+        "isActive": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Indica se o carrossel está ativo.",
+          "default": true
+        },
+        "banners": {
+          "type": "array",
+          "title": "Banners",
+          "items": {
+            "title": "Banner",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Título",
+                "type": "string"
+              },
+              "subtitle": {
+                "title": "Subtítulo",
+                "type": "string"
+              },
+              "isActive": {
+                "title": "Ativo",
+                "type": "boolean",
+                "default": false
+              },
+              "size": {
+                "title": "Tamanho",
+                "type": "string",
+                "enum": [
+                  "P",
+                  "M",
+                  "G",
+                  "FULL"
+                ],
+                "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+              },
+              "callToActionText": {
+                "title": "Texto de Ação",
+                "type": "string"
+              },
+              "image": {
+                "title": "Imagem",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "imageUrl": {
+                "title": "Link da Imagem",
+                "type": "string"
+              },
+              "adUnitId": {
+                "title": "Google Ads - Ad Unit ID",
+                "description": "Configura o banner para utilizar o Google Ads Manager",
+                "type": "string"
+              },
+              "adSource": {
+                "title": "Ads - Provedor do Anuncio",
+                "type": "string",
+                "enum": [
+                  "banner sem anúncio",
+                  "google_ads",
+                  "vtex_ads"
+                ]
+              },
+              "destination": {
+                "title": "Destino do Banner",
+                "type": "string",
+                "enum": [
+                  "Collection",
+                  "Category",
+                  "Product",
+                  "Search",
+                  "Link",
+                  "AppPage"
+                ],
+                "description": "Por favor, selecione uma das opções disponíveis."
+              },
+              "destinationId": {
+                "title": "ID ou termo de busca relativo ao destino",
+                "type": "string"
+              },
+              "isAWebView": {
+                "title": "Deseja exibir o link em uma webView?",
+                "type": "boolean",
+                "default": false
+              },
+              "appPageDestino": {
+                "title": "AppPage Destino",
+                "type": "string",
+                "enum": [
+                  "Lojas",
+                  "Landing-Page"
+                ],
+                "description": "Por favor, selecione um valor."
+              },
+              "landingPage": {
+                "title": "Landing Page",
+                "type": "string",
+                "description": "ID da página de destino (landing page)."
+              },
+              "order": {
+                "title": "Ordenação",
+                "type": "string",
+                "enum": [
+                  "Preço Decrescente",
+                  "Preço Crescente",
+                  "Mais Vendido",
+                  "Melhor Avaliação",
+                  "Ordem Alfabética A-Z",
+                  "Ordem Alfabética Z-A",
+                  "Data de Lançamento",
+                  "Melhor Desconto",
+                  "Score"
+                ]
+              },
+              "preProcessamento": {
+                "title": "Ação de Pré-processamento",
+                "type": "string"
+              },
+              "sc": {
+                "title": "Sales Channel",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "Valor"
+                }
+              },
+              "plpBanner": {
+                "title": "PLP banner",
+                "type": "array",
+                "maxItems": 1,
+                "items": {
+                  "title": "PLP banner",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "Título",
+                      "type": "string"
+                    },
+                    "subtitle": {
+                      "title": "Subtítulo",
+                      "type": "string"
+                    },
+                    "isActive": {
+                      "title": "Ativo",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "size": {
+                      "title": "Tamanho",
+                      "type": "string",
+                      "enum": [
+                        "P",
+                        "M",
+                        "G",
+                        "FULL"
+                      ],
+                      "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                    },
+                    "callToActionText": {
+                      "title": "Texto de Ação",
+                      "type": "string"
+                    },
+                    "image": {
+                      "title": "Imagem",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "imageUrl": {
+                      "title": "Link da Imagem",
+                      "type": "string"
+                    },
+                    "adUnitId": {
+                      "title": "Google Ads - Ad Unit ID",
+                      "description": "Configura o banner para utilizar o Google Ads Manager",
+                      "type": "string"
+                    },
+                    "adSource": {
+                      "title": "Ads - Provedor do Anuncio",
+                      "type": "string",
+                      "enum": [
+                        "banner sem anúncio",
+                        "google_ads",
+                        "vtex_ads"
+                      ]
+                    },
+                    "destination": {
+                      "title": "Destino do Banner",
+                      "type": "string",
+                      "enum": [
+                        "Collection",
+                        "Category",
+                        "Product",
+                        "Search",
+                        "Link",
+                        "AppPage"
+                      ],
+                      "description": "Por favor, selecione uma das opções disponíveis."
+                    },
+                    "destinationId": {
+                      "title": "ID ou termo de busca relativo ao destino",
+                      "type": "string"
+                    },
+                    "isAWebView": {
+                      "title": "Deseja exibir o link em uma webView?",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "appPageDestino": {
+                      "title": "AppPage Destino",
+                      "type": "string",
+                      "enum": [
+                        "Lojas",
+                        "Landing-Page"
+                      ],
+                      "description": "Por favor, selecione um valor."
+                    },
+                    "landingPage": {
+                      "title": "Landing Page",
+                      "type": "string",
+                      "description": "ID da página de destino (landing page)."
+                    },
+                    "order": {
+                      "title": "Ordenação",
+                      "type": "string",
+                      "enum": [
+                        "Preço Decrescente",
+                        "Preço Crescente",
+                        "Mais Vendido",
+                        "Melhor Avaliação",
+                        "Ordem Alfabética A-Z",
+                        "Ordem Alfabética Z-A",
+                        "Data de Lançamento",
+                        "Melhor Desconto",
+                        "Score"
+                      ]
+                    },
+                    "preProcessamento": {
+                      "title": "Ação de Pré-processamento",
+                      "type": "string"
+                    },
+                    "sc": {
+                      "title": "Sales Channel",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "title": "Valor"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "viewportFraction": {
+          "title": "Preview dos banners (horizontalmente)",
+          "type": "boolean",
+          "default": false,
+          "description": "Configura se será exibido o preview horizontal dos banners."
+        },
+        "behavior": {
+          "title": "Comportamento",
+          "type": "string",
+          "enum": [
+            "Snap",
+            "Free Movement"
+          ],
+          "default": "Snap",
+          "description": "Configura o comportamento do carrossel."
+        },
+        "showDots": {
+          "title": "Mostrar contadores",
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  {
+    "name": "banner-mosaic",
+    "requiredScopes": [
+      "home"
+    ],
+    "schema": {
+      "title": "Mosaico de Banners",
+      "type": "object",
+      "required": [
+        "title",
+        "banners"
+      ],
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "description": "Título do mosaico de banners"
+        },
+        "banners": {
+          "type": "array",
+          "title": "Banners",
+          "items": {
+            "title": "Banner",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Título",
+                "type": "string"
+              },
+              "subtitle": {
+                "title": "Subtítulo",
+                "type": "string"
+              },
+              "isActive": {
+                "title": "Ativo",
+                "type": "boolean",
+                "default": false
+              },
+              "size": {
+                "title": "Tamanho",
+                "type": "string",
+                "enum": [
+                  "P",
+                  "M",
+                  "G",
+                  "FULL"
+                ],
+                "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+              },
+              "callToActionText": {
+                "title": "Texto de Ação",
+                "type": "string"
+              },
+              "image": {
+                "title": "Imagem",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "imageUrl": {
+                "title": "Link da Imagem",
+                "type": "string"
+              },
+              "adUnitId": {
+                "title": "Google Ads - Ad Unit ID",
+                "description": "Configura o banner para utilizar o Google Ads Manager",
+                "type": "string"
+              },
+              "adSource": {
+                "title": "Ads - Provedor do Anuncio",
+                "type": "string",
+                "enum": [
+                  "banner sem anúncio",
+                  "google_ads",
+                  "vtex_ads"
+                ]
+              },
+              "destination": {
+                "title": "Destino do Banner",
+                "type": "string",
+                "enum": [
+                  "Collection",
+                  "Category",
+                  "Product",
+                  "Search",
+                  "Link",
+                  "AppPage"
+                ],
+                "description": "Por favor, selecione uma das opções disponíveis."
+              },
+              "destinationId": {
+                "title": "ID ou termo de busca relativo ao destino",
+                "type": "string"
+              },
+              "isAWebView": {
+                "title": "Deseja exibir o link em uma webView?",
+                "type": "boolean",
+                "default": false
+              },
+              "appPageDestino": {
+                "title": "AppPage Destino",
+                "type": "string",
+                "enum": [
+                  "Lojas",
+                  "Landing-Page"
+                ],
+                "description": "Por favor, selecione um valor."
+              },
+              "landingPage": {
+                "title": "Landing Page",
+                "type": "string",
+                "description": "ID da página de destino (landing page)."
+              },
+              "order": {
+                "title": "Ordenação",
+                "type": "string",
+                "enum": [
+                  "Preço Decrescente",
+                  "Preço Crescente",
+                  "Mais Vendido",
+                  "Melhor Avaliação",
+                  "Ordem Alfabética A-Z",
+                  "Ordem Alfabética Z-A",
+                  "Data de Lançamento",
+                  "Melhor Desconto",
+                  "Score"
+                ]
+              },
+              "preProcessamento": {
+                "title": "Ação de Pré-processamento",
+                "type": "string"
+              },
+              "sc": {
+                "title": "Sales Channel",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "Valor"
+                }
+              },
+              "plpBanner": {
+                "title": "PLP banner",
+                "type": "array",
+                "maxItems": 1,
+                "items": {
+                  "title": "PLP banner",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "Título",
+                      "type": "string"
+                    },
+                    "subtitle": {
+                      "title": "Subtítulo",
+                      "type": "string"
+                    },
+                    "isActive": {
+                      "title": "Ativo",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "size": {
+                      "title": "Tamanho",
+                      "type": "string",
+                      "enum": [
+                        "P",
+                        "M",
+                        "G",
+                        "FULL"
+                      ],
+                      "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                    },
+                    "callToActionText": {
+                      "title": "Texto de Ação",
+                      "type": "string"
+                    },
+                    "image": {
+                      "title": "Imagem",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "imageUrl": {
+                      "title": "Link da Imagem",
+                      "type": "string"
+                    },
+                    "adUnitId": {
+                      "title": "Google Ads - Ad Unit ID",
+                      "description": "Configura o banner para utilizar o Google Ads Manager",
+                      "type": "string"
+                    },
+                    "adSource": {
+                      "title": "Ads - Provedor do Anuncio",
+                      "type": "string",
+                      "enum": [
+                        "banner sem anúncio",
+                        "google_ads",
+                        "vtex_ads"
+                      ]
+                    },
+                    "destination": {
+                      "title": "Destino do Banner",
+                      "type": "string",
+                      "enum": [
+                        "Collection",
+                        "Category",
+                        "Product",
+                        "Search",
+                        "Link",
+                        "AppPage"
+                      ],
+                      "description": "Por favor, selecione uma das opções disponíveis."
+                    },
+                    "destinationId": {
+                      "title": "ID ou termo de busca relativo ao destino",
+                      "type": "string"
+                    },
+                    "isAWebView": {
+                      "title": "Deseja exibir o link em uma webView?",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "appPageDestino": {
+                      "title": "AppPage Destino",
+                      "type": "string",
+                      "enum": [
+                        "Lojas",
+                        "Landing-Page"
+                      ],
+                      "description": "Por favor, selecione um valor."
+                    },
+                    "landingPage": {
+                      "title": "Landing Page",
+                      "type": "string",
+                      "description": "ID da página de destino (landing page)."
+                    },
+                    "order": {
+                      "title": "Ordenação",
+                      "type": "string",
+                      "enum": [
+                        "Preço Decrescente",
+                        "Preço Crescente",
+                        "Mais Vendido",
+                        "Melhor Avaliação",
+                        "Ordem Alfabética A-Z",
+                        "Ordem Alfabética Z-A",
+                        "Data de Lançamento",
+                        "Melhor Desconto",
+                        "Score"
+                      ]
+                    },
+                    "preProcessamento": {
+                      "title": "Ação de Pré-processamento",
+                      "type": "string"
+                    },
+                    "sc": {
+                      "title": "Sales Channel",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "title": "Valor"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "isActive": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Define se o mosaico está ativo",
+          "default": true
+        }
+      }
+    }
+  },
+  {
+    "name": "product-carousel",
+    "requiredScopes": [
+      "home",
+      "contentContainer"
+    ],
+    "schema": {
+      "title": "Carrossel de Produto",
+      "description": "Configuração para o carrossel de produtos com opções de exibição, ordenação e estilo",
+      "type": "object",
+      "required": [
+        "showTitle"
+      ],
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "description": "Título opcional do carrossel"
+        },
+        "isActive": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Define se o carrossel está ativo",
+          "default": true
+        },
+        "listType": {
+          "title": "Tipo de listagem",
+          "type": "string",
+          "enum": [
+            "sku-list",
+            "collection",
+            "category",
+            "search",
+            "recommendation"
+          ],
+          "description": "Define o tipo de itens que serão exibidos no carrossel"
+        },
+        "id": {
+          "title": "Identificador",
+          "type": "string",
+          "description": "Identificador único do carrossel"
+        },
+        "order": {
+          "title": "Ordenação",
+          "type": "string",
+          "enum": [
+            "Preço Decrescente",
+            "Preço Crescente",
+            "Mais Vendidos",
+            "Melhor Avaliação",
+            "Ordem Alfabética A-Z",
+            "Ordem Alfabética Z-A",
+            "Data de Lançamento",
+            "Melhor Desconto",
+            "Score"
+          ],
+          "description": "Critério de ordenação dos itens"
+        },
+        "showTitle": {
+          "title": "Exibir o título?",
+          "type": "boolean",
+          "description": "Define se o título será exibido",
+          "default": false
+        },
+        "backgroundColor": {
+          "title": "Cor do background",
+          "type": "string",
+          "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+          "description": "Código hexadecimal para a cor de fundo"
+        },
+        "timerTextColor": {
+          "title": "Cor do texto do timer",
+          "type": "string",
+          "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+          "description": "Código hexadecimal para a cor do texto do timer"
+        },
+        "carouselButtonColor": {
+          "title": "Cor do botão do carrossel",
+          "type": "string",
+          "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+          "description": "Código hexadecimal para a cor do botão do carrossel"
+        },
+        "beginDate": {
+          "title": "Cronômetro de ofertas: Data de início",
+          "type": "string",
+          "widget": {
+            "ui:widget": "date-time"
+          }
+        },
+        "endDate": {
+          "title": "Cronômetro de ofertas: Data de fim",
+          "type": "string",
+          "widget": {
+            "ui:widget": "date-time"
+          }
+        },
+        "showTimer": {
+          "title": "Exibir timer do cronômetro de ofertas",
+          "type": "boolean",
+          "description": "Define se o timer será exibido",
+          "default": false
+        }
+      }
+    }
+  },
+  {
+    "name": "product-list",
+    "requiredScopes": [
+      "home"
+    ],
+    "schema": {
+      "title": "Lista de Produtos",
+      "description": "Configuração para exibir uma lista de produtos",
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "description": "Título da lista de produtos"
+        },
+        "isActive": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Define se a lista de produtos está ativa",
+          "default": true
+        },
+        "listType": {
+          "title": "Tipo de Listagem",
+          "type": "string",
+          "description": "Define o tipo de listagem de produtos",
+          "enum": [
+            "sku-list",
+            "collection",
+            "category",
+            "search"
+          ]
+        },
+        "id": {
+          "title": "Identificador",
+          "type": "string",
+          "description": "Identificador único para a lista de produtos"
+        },
+        "order": {
+          "title": "Ordenação",
+          "type": "string",
+          "description": "Critério de ordenação dos produtos",
+          "enum": [
+            "Preço Decrescente",
+            "Preço Crescente",
+            "Mais Vendidos",
+            "Melhor Avaliação",
+            "Ordem Alfabética A-Z",
+            "Ordem Alfabética Z-A",
+            "Data de Lançamento",
+            "Melhor Desconto",
+            "Score"
+          ]
+        },
+        "description": {
+          "title": "Descrição",
+          "type": "string",
+          "description": "Descrição da lista de produtos"
+        }
+      }
+    }
+  },
+  {
+    "name": "generic-carousel",
+    "requiredScopes": [
+      "home"
+    ],
+    "schema": {
+      "title": "Carrossel Genérico",
+      "description": "Seção para configurar um carrossel genérico com até 5 cards.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "description": "O título do carrossel."
+        },
+        "showTitle": {
+          "title": "Exibir o título?",
+          "type": "boolean",
+          "description": "Define se o título do carrossel será exibido"
+        },
+        "rightSpaceBetweenElements": {
+          "title": "Espaço entre os cards no carrossel",
+          "type": "string",
+          "description": "Define um valor customizado para o espaço entre os cards no carrossel (deve ser um numero)"
+        },
+        "type": {
+          "title": "Tipo",
+          "type": "string",
+          "enum": [
+            "generic",
+            "coupons",
+            "stories",
+            "cardWithDetails"
+          ]
+        },
+        "cards": {
+          "title": "Cards",
+          "type": "array",
+          "description": "Lista de cards que compõem o carrossel.",
+          "items": {
+            "type": "object",
+            "title": "Card Genérico",
+            "description": "Configuração para um card genérico com imagem, destino e exibição programada.",
+            "required": [
+              "image",
+              "destination"
+            ],
+            "properties": {
+              "cardName": {
+                "title": "Nome do card",
+                "type": "string",
+                "description": "Identificação opcional do card."
+              },
+              "isActive": {
+                "title": "Ativo",
+                "type": "boolean",
+                "description": "Define se o card está ativo.",
+                "default": true
+              },
+              "image": {
+                "title": "Imagem do Card",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "destination": {
+                "title": "Destino do card",
+                "type": "string",
+                "enum": [
+                  "Collection",
+                  "Product",
+                  "Search",
+                  "Link",
+                  "AppPage",
+                  "Category"
+                ],
+                "description": "Define o tipo de destino associado ao card."
+              },
+              "destinationId": {
+                "title": "Id ou termo de busca relativo ao tipo de destino",
+                "type": "string",
+                "description": "Identificador ou termo de busca relacionado ao destino selecionado."
+              },
+              "appPageDestino": {
+                "title": "AppPage Destino",
+                "type": "string",
+                "enum": [
+                  "Lojas",
+                  "Landing-Page"
+                ],
+                "description": "Define o destino para páginas específicas do app."
+              },
+              "grayScaleImage": {
+                "title": "Imagem em escala de cinza?",
+                "type": "boolean",
+                "description": "Define se a imagem será exibida em escala de cinza."
+              },
+              "rectangularCard": {
+                "title": "Card retangular?",
+                "type": "boolean",
+                "description": "Define se o card será exibido em formato retangular."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "urlConfiguration",
+    "requiredScopes": [
+      "urlConfiguration"
+    ],
+    "schema": {
+      "title": "Configuração URL",
+      "description": "Configuração do link para ser exibido na aba de conta.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "string",
+          "enum": [
+            "assistance",
+            "cancellations_information",
+            "cashback",
+            "company",
+            "conservation",
+            "credit_card",
+            "delivery_information",
+            "help",
+            "our_blog",
+            "our_brand",
+            "our_stores",
+            "printed_booklet",
+            "privacy",
+            "product_changes",
+            "product_changes_partner",
+            "product_warranty",
+            "regulations",
+            "sell_comics",
+            "support",
+            "whatsapp"
+          ]
+        },
+        "text": {
+          "title": "Texto",
+          "type": "string",
+          "description": "Texto exibido para o usuário."
+        },
+        "url": {
+          "title": "URL",
+          "type": "string",
+          "description": "Link de destino."
+        },
+        "iconImage": {
+          "title": "Imagem do Ícone",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "iconId": {
+          "title": "ID do Ícone",
+          "type": "string",
+          "description": "Caso não queria utilizar a imagem acima procure um ícone nesse site https://api.flutter.dev/flutter/material/Icons-class.html copie o id e coloque aqui (Exemplo de id: 0xe037)"
+        },
+        "backgroundColor": {
+          "title": "Cor de Fundo",
+          "type": "string",
+          "description": "A cor de fundo do Card no padrão hexadecimal (Exemplo: FFFFFF ou #FFFFFF), caso queira utilizar a cor padrão do app deixe o campo em branco"
+        },
+        "foregroundColor": {
+          "title": "Cor do Primeiro Plano",
+          "type": "string",
+          "description": "A cor do texto e do ícone indicativo no padrão hexadecimal (Exemplo: FFFFFF ou #FFFFFF), caso queira utilizar a cor padrão do app deixe o campo em branco"
+        },
+        "enabled": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Define se o link está ativo.",
+          "default": true
+        },
+        "webView": {
+          "title": "Abrir como Tela",
+          "type": "boolean",
+          "description": "Essa opção faz com que a Url seja aberta como uma tela dentro do aplicativo utilizando o campo 'Texto' como título",
+          "default": true
+        },
+        "launchMode": {
+          "title": "Modo de Abertura",
+          "type": "string",
+          "description": "Algumas Url podem não abrir corretamente, altere esse modo até que o aplicativo redirecione de forma correta (Utilizada apenas caso a opção 'Abrir como tela' esteja desativada)",
+          "enum": [
+            "platformDefault",
+            "inAppWebView",
+            "externalApplication"
+          ]
+        },
+        "loggedUsersOnly": {
+          "title": "Somente para usarios logados",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  {
+    "name": "lpprimarybutton",
+    "requiredScopes": [
+      "landingPage"
+    ],
+    "schema": {
+      "title": "Botão de Redirecionamento | Landing Page",
+      "description": "Modelo para exibição de um botão primário, com redirecionamento para páginas externas",
+      "type": "object",
+      "required": [
+        "lpbuttontext",
+        "buttonLink"
+      ],
+      "properties": {
+        "buttontitle": {
+          "title": "Título",
+          "type": "string",
+          "description": "Titulo para controle interno do componente."
+        },
+        "isActive": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Define se o botão está ativo",
+          "default": true
+        },
+        "lpbuttontext": {
+          "title": "Texto do botão",
+          "type": "string",
+          "description": "Texto exibido dentro do botão da Landing Page"
+        },
+        "buttonLink": {
+          "title": "Link de redirecionamento",
+          "type": "string",
+          "description": "URL para onde o botão redirecionará ao ser clicado."
+        }
+      }
+    }
+  },
+  {
+    "name": "lptitle",
+    "requiredScopes": [
+      "landingPage"
+    ],
+    "schema": {
+      "title": "Título | Landing Page",
+      "description": "Estrutura para configurar título para a landing page.",
+      "required": [
+        "title",
+        "lptexttitle"
+      ],
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "description": "Titulo para controle interno do componente."
+        },
+        "isActive": {
+          "title": "Ativo",
+          "type": "boolean",
+          "description": "Define se o título está ativo.",
+          "default": true
+        },
+        "lptexttitle": {
+          "title": "Texto",
+          "type": "string",
+          "description": "Texto do título que irá aparecer na landing page."
+        }
+      }
+    }
+  },
+  {
+    "name": "category",
+    "requiredScopes": [
+      "categories"
+    ],
+    "schema": {
+      "title": "Categoria",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "openOnTap": {
+          "title": "Abrir ao clicar",
+          "type": "boolean",
+          "default": false
+        },
+        "searchSource": {
+          "title": "Origem da busca",
+          "type": "string",
+          "enum": [
+            "Category",
+            "Collection",
+            "Landing-Page"
+          ]
+        },
+        "searchId": {
+          "title": "ID da busca",
+          "type": "string"
+        },
+        "landingPageId": {
+          "title": "ID da landing page",
+          "type": "string"
+        },
+        "applySpecificationFilter": {
+          "title": "Aplicar filtro de especificação",
+          "type": "boolean",
+          "default": false
+        },
+        "specificationId": {
+          "title": "Id da especificação",
+          "type": "string"
+        },
+        "searchFilterTerm": {
+          "title": "Termo da busca por filtro",
+          "type": "string"
+        },
+        "plpBanner": {
+          "title": "PLP banner",
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "title": "PLP banner",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Título",
+                "type": "string"
+              },
+              "subtitle": {
+                "title": "Subtítulo",
+                "type": "string"
+              },
+              "isActive": {
+                "title": "Ativo",
+                "type": "boolean",
+                "default": false
+              },
+              "size": {
+                "title": "Tamanho",
+                "type": "string",
+                "enum": [
+                  "P",
+                  "M",
+                  "G",
+                  "FULL"
+                ],
+                "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+              },
+              "callToActionText": {
+                "title": "Texto de Ação",
+                "type": "string"
+              },
+              "image": {
+                "title": "Imagem",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "imageUrl": {
+                "title": "Link da Imagem",
+                "type": "string"
+              },
+              "adUnitId": {
+                "title": "Google Ads - Ad Unit ID",
+                "description": "Configura o banner para utilizar o Google Ads Manager",
+                "type": "string"
+              },
+              "adSource": {
+                "title": "Ads - Provedor do Anuncio",
+                "type": "string",
+                "enum": [
+                  "banner sem anúncio",
+                  "google_ads",
+                  "vtex_ads"
+                ]
+              },
+              "destination": {
+                "title": "Destino do Banner",
+                "type": "string",
+                "enum": [
+                  "Collection",
+                  "Category",
+                  "Product",
+                  "Search",
+                  "Link",
+                  "AppPage"
+                ],
+                "description": "Por favor, selecione uma das opções disponíveis."
+              },
+              "destinationId": {
+                "title": "ID ou termo de busca relativo ao destino",
+                "type": "string"
+              },
+              "isAWebView": {
+                "title": "Deseja exibir o link em uma webView?",
+                "type": "boolean",
+                "default": false
+              },
+              "appPageDestino": {
+                "title": "AppPage Destino",
+                "type": "string",
+                "enum": [
+                  "Lojas",
+                  "Landing-Page"
+                ],
+                "description": "Por favor, selecione um valor."
+              },
+              "landingPage": {
+                "title": "Landing Page",
+                "type": "string",
+                "description": "ID da página de destino (landing page)."
+              },
+              "order": {
+                "title": "Ordenação",
+                "type": "string",
+                "enum": [
+                  "Preço Decrescente",
+                  "Preço Crescente",
+                  "Mais Vendido",
+                  "Melhor Avaliação",
+                  "Ordem Alfabética A-Z",
+                  "Ordem Alfabética Z-A",
+                  "Data de Lançamento",
+                  "Melhor Desconto",
+                  "Score"
+                ]
+              },
+              "preProcessamento": {
+                "title": "Ação de Pré-processamento",
+                "type": "string"
+              },
+              "sc": {
+                "title": "Sales Channel",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "Valor"
+                }
+              },
+              "plpBanner": {
+                "title": "PLP banner",
+                "type": "array",
+                "maxItems": 1,
+                "items": {
+                  "title": "PLP banner",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "Título",
+                      "type": "string"
+                    },
+                    "subtitle": {
+                      "title": "Subtítulo",
+                      "type": "string"
+                    },
+                    "isActive": {
+                      "title": "Ativo",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "size": {
+                      "title": "Tamanho",
+                      "type": "string",
+                      "enum": [
+                        "P",
+                        "M",
+                        "G",
+                        "FULL"
+                      ],
+                      "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                    },
+                    "callToActionText": {
+                      "title": "Texto de Ação",
+                      "type": "string"
+                    },
+                    "image": {
+                      "title": "Imagem",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "imageUrl": {
+                      "title": "Link da Imagem",
+                      "type": "string"
+                    },
+                    "adUnitId": {
+                      "title": "Google Ads - Ad Unit ID",
+                      "description": "Configura o banner para utilizar o Google Ads Manager",
+                      "type": "string"
+                    },
+                    "adSource": {
+                      "title": "Ads - Provedor do Anuncio",
+                      "type": "string",
+                      "enum": [
+                        "banner sem anúncio",
+                        "google_ads",
+                        "vtex_ads"
+                      ]
+                    },
+                    "destination": {
+                      "title": "Destino do Banner",
+                      "type": "string",
+                      "enum": [
+                        "Collection",
+                        "Category",
+                        "Product",
+                        "Search",
+                        "Link",
+                        "AppPage"
+                      ],
+                      "description": "Por favor, selecione uma das opções disponíveis."
+                    },
+                    "destinationId": {
+                      "title": "ID ou termo de busca relativo ao destino",
+                      "type": "string"
+                    },
+                    "isAWebView": {
+                      "title": "Deseja exibir o link em uma webView?",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "appPageDestino": {
+                      "title": "AppPage Destino",
+                      "type": "string",
+                      "enum": [
+                        "Lojas",
+                        "Landing-Page"
+                      ],
+                      "description": "Por favor, selecione um valor."
+                    },
+                    "landingPage": {
+                      "title": "Landing Page",
+                      "type": "string",
+                      "description": "ID da página de destino (landing page)."
+                    },
+                    "order": {
+                      "title": "Ordenação",
+                      "type": "string",
+                      "enum": [
+                        "Preço Decrescente",
+                        "Preço Crescente",
+                        "Mais Vendido",
+                        "Melhor Avaliação",
+                        "Ordem Alfabética A-Z",
+                        "Ordem Alfabética Z-A",
+                        "Data de Lançamento",
+                        "Melhor Desconto",
+                        "Score"
+                      ]
+                    },
+                    "preProcessamento": {
+                      "title": "Ação de Pré-processamento",
+                      "type": "string"
+                    },
+                    "sc": {
+                      "title": "Sales Channel",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "title": "Valor"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "icon": {
+          "title": "Ícone",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "image": {
+          "title": "Imagem",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "color": {
+          "title": "Cor",
+          "type": "string"
+        },
+        "childrenWidgetStyle": {
+          "title": "Categorias filhas: Estilo do componente",
+          "type": "string",
+          "enum": [
+            "Lista",
+            "Grade",
+            "ListaExpansivel"
+          ]
+        },
+        "childrenAssetType": {
+          "title": "Categorias filhas: Tipo de asset",
+          "type": "string",
+          "enum": [
+            "Imagem",
+            "Ícone",
+            "Nenhum"
+          ]
+        },
+        "children": {
+          "title": "Categorias filhas",
+          "type": "array",
+          "items": {
+            "title": "Categoria",
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "Nome",
+                "type": "string"
+              },
+              "openOnTap": {
+                "title": "Abrir ao clicar",
+                "type": "boolean",
+                "default": false
+              },
+              "searchSource": {
+                "title": "Origem da busca",
+                "type": "string",
+                "enum": [
+                  "Category",
+                  "Collection",
+                  "Landing-Page"
+                ]
+              },
+              "searchId": {
+                "title": "ID da busca",
+                "type": "string"
+              },
+              "landingPageId": {
+                "title": "ID da landing page",
+                "type": "string"
+              },
+              "applySpecificationFilter": {
+                "title": "Aplicar filtro de especificação",
+                "type": "boolean",
+                "default": false
+              },
+              "specificationId": {
+                "title": "Id da especificação",
+                "type": "string"
+              },
+              "searchFilterTerm": {
+                "title": "Termo da busca por filtro",
+                "type": "string"
+              },
+              "plpBanner": {
+                "title": "PLP banner",
+                "type": "array",
+                "maxItems": 1,
+                "items": {
+                  "title": "PLP banner",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "Título",
+                      "type": "string"
+                    },
+                    "subtitle": {
+                      "title": "Subtítulo",
+                      "type": "string"
+                    },
+                    "isActive": {
+                      "title": "Ativo",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "size": {
+                      "title": "Tamanho",
+                      "type": "string",
+                      "enum": [
+                        "P",
+                        "M",
+                        "G",
+                        "FULL"
+                      ],
+                      "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                    },
+                    "callToActionText": {
+                      "title": "Texto de Ação",
+                      "type": "string"
+                    },
+                    "image": {
+                      "title": "Imagem",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "imageUrl": {
+                      "title": "Link da Imagem",
+                      "type": "string"
+                    },
+                    "adUnitId": {
+                      "title": "Google Ads - Ad Unit ID",
+                      "description": "Configura o banner para utilizar o Google Ads Manager",
+                      "type": "string"
+                    },
+                    "adSource": {
+                      "title": "Ads - Provedor do Anuncio",
+                      "type": "string",
+                      "enum": [
+                        "banner sem anúncio",
+                        "google_ads",
+                        "vtex_ads"
+                      ]
+                    },
+                    "destination": {
+                      "title": "Destino do Banner",
+                      "type": "string",
+                      "enum": [
+                        "Collection",
+                        "Category",
+                        "Product",
+                        "Search",
+                        "Link",
+                        "AppPage"
+                      ],
+                      "description": "Por favor, selecione uma das opções disponíveis."
+                    },
+                    "destinationId": {
+                      "title": "ID ou termo de busca relativo ao destino",
+                      "type": "string"
+                    },
+                    "isAWebView": {
+                      "title": "Deseja exibir o link em uma webView?",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "appPageDestino": {
+                      "title": "AppPage Destino",
+                      "type": "string",
+                      "enum": [
+                        "Lojas",
+                        "Landing-Page"
+                      ],
+                      "description": "Por favor, selecione um valor."
+                    },
+                    "landingPage": {
+                      "title": "Landing Page",
+                      "type": "string",
+                      "description": "ID da página de destino (landing page)."
+                    },
+                    "order": {
+                      "title": "Ordenação",
+                      "type": "string",
+                      "enum": [
+                        "Preço Decrescente",
+                        "Preço Crescente",
+                        "Mais Vendido",
+                        "Melhor Avaliação",
+                        "Ordem Alfabética A-Z",
+                        "Ordem Alfabética Z-A",
+                        "Data de Lançamento",
+                        "Melhor Desconto",
+                        "Score"
+                      ]
+                    },
+                    "preProcessamento": {
+                      "title": "Ação de Pré-processamento",
+                      "type": "string"
+                    },
+                    "sc": {
+                      "title": "Sales Channel",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "title": "Valor"
+                      }
+                    },
+                    "plpBanner": {
+                      "title": "PLP banner",
+                      "type": "array",
+                      "maxItems": 1,
+                      "items": {
+                        "title": "PLP banner",
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "title": "Título",
+                            "type": "string"
+                          },
+                          "subtitle": {
+                            "title": "Subtítulo",
+                            "type": "string"
+                          },
+                          "isActive": {
+                            "title": "Ativo",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "size": {
+                            "title": "Tamanho",
+                            "type": "string",
+                            "enum": [
+                              "P",
+                              "M",
+                              "G",
+                              "FULL"
+                            ],
+                            "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                          },
+                          "callToActionText": {
+                            "title": "Texto de Ação",
+                            "type": "string"
+                          },
+                          "image": {
+                            "title": "Imagem",
+                            "type": "string",
+                            "widget": {
+                              "ui:widget": "image-uploader"
+                            }
+                          },
+                          "imageUrl": {
+                            "title": "Link da Imagem",
+                            "type": "string"
+                          },
+                          "adUnitId": {
+                            "title": "Google Ads - Ad Unit ID",
+                            "description": "Configura o banner para utilizar o Google Ads Manager",
+                            "type": "string"
+                          },
+                          "adSource": {
+                            "title": "Ads - Provedor do Anuncio",
+                            "type": "string",
+                            "enum": [
+                              "banner sem anúncio",
+                              "google_ads",
+                              "vtex_ads"
+                            ]
+                          },
+                          "destination": {
+                            "title": "Destino do Banner",
+                            "type": "string",
+                            "enum": [
+                              "Collection",
+                              "Category",
+                              "Product",
+                              "Search",
+                              "Link",
+                              "AppPage"
+                            ],
+                            "description": "Por favor, selecione uma das opções disponíveis."
+                          },
+                          "destinationId": {
+                            "title": "ID ou termo de busca relativo ao destino",
+                            "type": "string"
+                          },
+                          "isAWebView": {
+                            "title": "Deseja exibir o link em uma webView?",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "appPageDestino": {
+                            "title": "AppPage Destino",
+                            "type": "string",
+                            "enum": [
+                              "Lojas",
+                              "Landing-Page"
+                            ],
+                            "description": "Por favor, selecione um valor."
+                          },
+                          "landingPage": {
+                            "title": "Landing Page",
+                            "type": "string",
+                            "description": "ID da página de destino (landing page)."
+                          },
+                          "order": {
+                            "title": "Ordenação",
+                            "type": "string",
+                            "enum": [
+                              "Preço Decrescente",
+                              "Preço Crescente",
+                              "Mais Vendido",
+                              "Melhor Avaliação",
+                              "Ordem Alfabética A-Z",
+                              "Ordem Alfabética Z-A",
+                              "Data de Lançamento",
+                              "Melhor Desconto",
+                              "Score"
+                            ]
+                          },
+                          "preProcessamento": {
+                            "title": "Ação de Pré-processamento",
+                            "type": "string"
+                          },
+                          "sc": {
+                            "title": "Sales Channel",
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "title": "Valor"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "icon": {
+                "title": "Ícone",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "image": {
+                "title": "Imagem",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "color": {
+                "title": "Cor",
+                "type": "string"
+              },
+              "childrenWidgetStyle": {
+                "title": "Categorias filhas: Estilo do componente",
+                "type": "string",
+                "enum": [
+                  "Lista",
+                  "Grade",
+                  "ListaExpansivel"
+                ]
+              },
+              "childrenAssetType": {
+                "title": "Categorias filhas: Tipo de asset",
+                "type": "string",
+                "enum": [
+                  "Imagem",
+                  "Ícone",
+                  "Nenhum"
+                ]
+              },
+              "children": {
+                "title": "Categorias filhas",
+                "type": "array",
+                "items": {
+                  "title": "Categoria",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "title": "Nome",
+                      "type": "string"
+                    },
+                    "openOnTap": {
+                      "title": "Abrir ao clicar",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "searchSource": {
+                      "title": "Origem da busca",
+                      "type": "string",
+                      "enum": [
+                        "Category",
+                        "Collection",
+                        "Landing-Page"
+                      ]
+                    },
+                    "searchId": {
+                      "title": "ID da busca",
+                      "type": "string"
+                    },
+                    "landingPageId": {
+                      "title": "ID da landing page",
+                      "type": "string"
+                    },
+                    "applySpecificationFilter": {
+                      "title": "Aplicar filtro de especificação",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "specificationId": {
+                      "title": "Id da especificação",
+                      "type": "string"
+                    },
+                    "searchFilterTerm": {
+                      "title": "Termo da busca por filtro",
+                      "type": "string"
+                    },
+                    "plpBanner": {
+                      "title": "PLP banner",
+                      "type": "array",
+                      "maxItems": 1,
+                      "items": {
+                        "title": "PLP banner",
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "title": "Título",
+                            "type": "string"
+                          },
+                          "subtitle": {
+                            "title": "Subtítulo",
+                            "type": "string"
+                          },
+                          "isActive": {
+                            "title": "Ativo",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "size": {
+                            "title": "Tamanho",
+                            "type": "string",
+                            "enum": [
+                              "P",
+                              "M",
+                              "G",
+                              "FULL"
+                            ],
+                            "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                          },
+                          "callToActionText": {
+                            "title": "Texto de Ação",
+                            "type": "string"
+                          },
+                          "image": {
+                            "title": "Imagem",
+                            "type": "string",
+                            "widget": {
+                              "ui:widget": "image-uploader"
+                            }
+                          },
+                          "imageUrl": {
+                            "title": "Link da Imagem",
+                            "type": "string"
+                          },
+                          "adUnitId": {
+                            "title": "Google Ads - Ad Unit ID",
+                            "description": "Configura o banner para utilizar o Google Ads Manager",
+                            "type": "string"
+                          },
+                          "adSource": {
+                            "title": "Ads - Provedor do Anuncio",
+                            "type": "string",
+                            "enum": [
+                              "banner sem anúncio",
+                              "google_ads",
+                              "vtex_ads"
+                            ]
+                          },
+                          "destination": {
+                            "title": "Destino do Banner",
+                            "type": "string",
+                            "enum": [
+                              "Collection",
+                              "Category",
+                              "Product",
+                              "Search",
+                              "Link",
+                              "AppPage"
+                            ],
+                            "description": "Por favor, selecione uma das opções disponíveis."
+                          },
+                          "destinationId": {
+                            "title": "ID ou termo de busca relativo ao destino",
+                            "type": "string"
+                          },
+                          "isAWebView": {
+                            "title": "Deseja exibir o link em uma webView?",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "appPageDestino": {
+                            "title": "AppPage Destino",
+                            "type": "string",
+                            "enum": [
+                              "Lojas",
+                              "Landing-Page"
+                            ],
+                            "description": "Por favor, selecione um valor."
+                          },
+                          "landingPage": {
+                            "title": "Landing Page",
+                            "type": "string",
+                            "description": "ID da página de destino (landing page)."
+                          },
+                          "order": {
+                            "title": "Ordenação",
+                            "type": "string",
+                            "enum": [
+                              "Preço Decrescente",
+                              "Preço Crescente",
+                              "Mais Vendido",
+                              "Melhor Avaliação",
+                              "Ordem Alfabética A-Z",
+                              "Ordem Alfabética Z-A",
+                              "Data de Lançamento",
+                              "Melhor Desconto",
+                              "Score"
+                            ]
+                          },
+                          "preProcessamento": {
+                            "title": "Ação de Pré-processamento",
+                            "type": "string"
+                          },
+                          "sc": {
+                            "title": "Sales Channel",
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "title": "Valor"
+                            }
+                          },
+                          "plpBanner": {
+                            "title": "PLP banner",
+                            "type": "array",
+                            "maxItems": 1,
+                            "items": {
+                              "title": "PLP banner",
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "title": "Título",
+                                  "type": "string"
+                                },
+                                "subtitle": {
+                                  "title": "Subtítulo",
+                                  "type": "string"
+                                },
+                                "isActive": {
+                                  "title": "Ativo",
+                                  "type": "boolean",
+                                  "default": false
+                                },
+                                "size": {
+                                  "title": "Tamanho",
+                                  "type": "string",
+                                  "enum": [
+                                    "P",
+                                    "M",
+                                    "G",
+                                    "FULL"
+                                  ],
+                                  "description": "Tamanhos padrões esperados das imagens (Largura x Altura) - P: 360L x 53A, M: 176L x 155A, G: 360L x 155A, FULL: 360L x 500A / Resolução padrão esperado das imagens - P: 1080x159 px, M: 528x465 px, G: 1080x465 px, FULL: 1080x1500 px"
+                                },
+                                "callToActionText": {
+                                  "title": "Texto de Ação",
+                                  "type": "string"
+                                },
+                                "image": {
+                                  "title": "Imagem",
+                                  "type": "string",
+                                  "widget": {
+                                    "ui:widget": "image-uploader"
+                                  }
+                                },
+                                "imageUrl": {
+                                  "title": "Link da Imagem",
+                                  "type": "string"
+                                },
+                                "adUnitId": {
+                                  "title": "Google Ads - Ad Unit ID",
+                                  "description": "Configura o banner para utilizar o Google Ads Manager",
+                                  "type": "string"
+                                },
+                                "adSource": {
+                                  "title": "Ads - Provedor do Anuncio",
+                                  "type": "string",
+                                  "enum": [
+                                    "banner sem anúncio",
+                                    "google_ads",
+                                    "vtex_ads"
+                                  ]
+                                },
+                                "destination": {
+                                  "title": "Destino do Banner",
+                                  "type": "string",
+                                  "enum": [
+                                    "Collection",
+                                    "Category",
+                                    "Product",
+                                    "Search",
+                                    "Link",
+                                    "AppPage"
+                                  ],
+                                  "description": "Por favor, selecione uma das opções disponíveis."
+                                },
+                                "destinationId": {
+                                  "title": "ID ou termo de busca relativo ao destino",
+                                  "type": "string"
+                                },
+                                "isAWebView": {
+                                  "title": "Deseja exibir o link em uma webView?",
+                                  "type": "boolean",
+                                  "default": false
+                                },
+                                "appPageDestino": {
+                                  "title": "AppPage Destino",
+                                  "type": "string",
+                                  "enum": [
+                                    "Lojas",
+                                    "Landing-Page"
+                                  ],
+                                  "description": "Por favor, selecione um valor."
+                                },
+                                "landingPage": {
+                                  "title": "Landing Page",
+                                  "type": "string",
+                                  "description": "ID da página de destino (landing page)."
+                                },
+                                "order": {
+                                  "title": "Ordenação",
+                                  "type": "string",
+                                  "enum": [
+                                    "Preço Decrescente",
+                                    "Preço Crescente",
+                                    "Mais Vendido",
+                                    "Melhor Avaliação",
+                                    "Ordem Alfabética A-Z",
+                                    "Ordem Alfabética Z-A",
+                                    "Data de Lançamento",
+                                    "Melhor Desconto",
+                                    "Score"
+                                  ]
+                                },
+                                "preProcessamento": {
+                                  "title": "Ação de Pré-processamento",
+                                  "type": "string"
+                                },
+                                "sc": {
+                                  "title": "Sales Channel",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "title": "Valor"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "icon": {
+                      "title": "Ícone",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "image": {
+                      "title": "Imagem",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "color": {
+                      "title": "Cor",
+                      "type": "string"
+                    },
+                    "childrenWidgetStyle": {
+                      "title": "Categorias filhas: Estilo do componente",
+                      "type": "string",
+                      "enum": [
+                        "Lista",
+                        "Grade",
+                        "ListaExpansivel"
+                      ]
+                    },
+                    "childrenAssetType": {
+                      "title": "Categorias filhas: Tipo de asset",
+                      "type": "string",
+                      "enum": [
+                        "Imagem",
+                        "Ícone",
+                        "Nenhum"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "addOnOption",
+    "requiredScopes": [
+      "addOnComponent"
+    ],
+    "schema": {
+      "title": "Opção de Add-on",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "description": {
+          "title": "Descrição",
+          "type": "string"
+        },
+        "customDataName": {
+          "title": "Nome do campo customizado",
+          "type": "string"
+        },
+        "orderFormCustomData": {
+          "title": "Dados do campo customizado",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  },
+  {
+    "name": "benefitCard",
+    "requiredScopes": [
+      "benefitsHomeScreen"
+    ],
+    "schema": {
+      "title": "Benefícios | Cards",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "icon": {
+          "title": "Ícone",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "type": {
+          "title": "Tipo",
+          "type": "string",
+          "enum": [
+            "Cashback",
+            "Dengo de Aniversário",
+            "Café Fidelidade"
+          ]
+        },
+        "helperText": {
+          "title": "Texto de apoio",
+          "type": "string"
+        },
+        "image": {
+          "title": "Imagem",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "benefitsPageId": {
+          "title": "ID da página de benefícios",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "icon",
+        "type",
+        "benefitsPageId"
+      ]
+    }
+  },
+  {
+    "name": "card-banner",
+    "requiredScopes": [
+      "card-banner-list"
+    ],
+    "schema": {
+      "title": "Bandeira de cartão",
+      "type": "object",
+      "properties": {
+        "image": {
+          "title": "Imagem",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "type": {
+          "title": "Tipo de cartão",
+          "type": "string",
+          "enum": [
+            "Crédito",
+            "Débito",
+            "Crédito/Débito"
+          ]
+        },
+        "accepted": {
+          "title": "Aceito",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "image",
+        "title",
+        "type",
+        "accepted"
+      ]
+    }
+  },
+  {
+    "name": "cashback-summary",
+    "requiredScopes": [
+      "home",
+      "landingPage"
+    ],
+    "schema": {
+      "title": "Cashback Summary",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Ativo",
+          "type": "boolean",
+          "default": false
+        },
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "showTitle": {
+          "title": "Mostar título",
+          "type": "boolean",
+          "default": false
+        },
+        "backgroundColor": {
+          "title": "Cor de fundo",
+          "type": "string"
+        },
+        "showCashbackStatement": {
+          "title": "Mostar extrato do cashback",
+          "type": "boolean",
+          "default": false
+        },
+        "showFaq": {
+          "title": "Mostrar dúvidas frequentes",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  {
+    "name": "question-answer",
+    "requiredScopes": [
+      "faqPage"
+    ],
+    "schema": {
+      "title": "Pergunta e resposta",
+      "type": "object",
+      "properties": {
+        "question": {
+          "title": "Pergunta",
+          "type": "string"
+        },
+        "answer": {
+          "title": "Resposta",
+          "type": "string",
+          "widget": {
+            "ui:widget": "draftjs-rich-text"
+          }
+        },
+        "widget": {
+          "ui:widget": "draftjs-rich-text"
+        }
+      },
+      "required": [
+        "question",
+        "answer"
+      ]
+    }
+  },
+  {
+    "name": "productSticker",
+    "requiredScopes": [
+      "productStickers"
+    ],
+    "schema": {
+      "title": "Selo no produto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "rounded": {
+          "title": "Arredondado",
+          "type": "boolean",
+          "default": false
+        },
+        "image": {
+          "title": "Imagem",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "listType": {
+          "title": "Tipo",
+          "type": "string",
+          "enum": [
+            "Lista de produtos",
+            "Lista de categorias",
+            "Lista de coleções",
+            "Lista de especificações",
+            "Promoções principais"
+          ]
+        },
+        "listTypeIds": {
+          "title": "ID dos produtos, coleções ou categorias",
+          "type": "array",
+          "items": {
+            "title": "ID",
+            "type": "string"
+          }
+        },
+        "sizeOnPdp": {
+          "title": "Tamanho na PDP",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name",
+        "rounded",
+        "image",
+        "listType",
+        "listTypeIds"
+      ]
+    }
+  },
+  {
+    "name": "tag",
+    "requiredScopes": [
+      "tags"
+    ],
+    "schema": {
+      "title": "Tag",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "string"
+        },
+        "name": {
+          "title": "Nome",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "tutorialStep",
+    "requiredScopes": [
+      "tutorial"
+    ],
+    "schema": {
+      "title": "Passo",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "active": {
+          "title": "Ativo",
+          "type": "boolean",
+          "default": false
+        },
+        "subtitle": {
+          "title": "Subtítulo",
+          "type": "string"
+        },
+        "image": {
+          "title": "Imagem",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "active"
+      ]
+    }
+  },
+  {
+    "name": "onboardingPage",
+    "requiredScopes": [
+      "onboarding"
+    ],
+    "schema": {
+      "title": "Etapa/Página",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "number": {
+          "title": "Número",
+          "type": "integer"
+        },
+        "type": {
+          "title": "Tipo",
+          "type": "string",
+          "enum": [
+            "Boas vindas",
+            "Seleção vertical",
+            "Seleção grid",
+            "Sucesso"
+          ]
+        },
+        "helperText": {
+          "title": "Texto de ajuda",
+          "type": "string",
+          "widget": {
+            "ui:widget": "draftjs-rich-text"
+          }
+        },
+        "options": {
+          "title": "Opções de seleção",
+          "type": "array",
+          "items": {
+            "title": "Opção de seleção",
+            "type": "object",
+            "properties": {
+              "text": {
+                "title": "Texto",
+                "type": "string"
+              },
+              "searchId": {
+                "title": "ID relacionado ao tipo de busca",
+                "type": "string"
+              },
+              "image": {
+                "title": "Imagem",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "relation": {
+                "title": "Relação com a pré-seleção",
+                "type": "string"
+              }
+            },
+            "required": [
+              "text",
+              "searchId"
+            ]
+          }
+        },
+        "optionSearchType": {
+          "title": "Tipo de busca das opções",
+          "type": "string",
+          "enum": [
+            "Categoria",
+            "Coleção"
+          ]
+        },
+        "maxOptionsSelection": {
+          "title": "Máximo de opções selecionáveis",
+          "type": "integer"
+        },
+        "finalOptions": {
+          "title": "As opções são finais?",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "number",
+        "type",
+        "helperText"
+      ]
+    }
+  },
+  {
+    "name": "coupon",
+    "requiredScopes": [
+      "coupon-list"
+    ],
+    "schema": {
+      "title": "Cupom",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "active": {
+          "title": "Ativo",
+          "type": "boolean",
+          "default": false
+        },
+        "image": {
+          "title": "Imagem",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "size": {
+          "title": "Tamanho",
+          "type": "string",
+          "enum": [
+            "800x250",
+            "800x520"
+          ]
+        },
+        "type": {
+          "title": "Tipo",
+          "type": "string",
+          "enum": [
+            "PercentageDiscountCoupon",
+            "FixedValueCoupon",
+            "FreeShipping",
+            "ProgressiveCoupon"
+          ]
+        },
+        "warningText": {
+          "title": "Texto de Aviso",
+          "type": "string"
+        },
+        "discountValue": {
+          "title": "Texto do Valor do Desconto",
+          "type": "string"
+        },
+        "code": {
+          "title": "Código",
+          "type": "string"
+        },
+        "usageRules": {
+          "title": "Regras de uso",
+          "type": "string"
+        },
+        "usageInstructions": {
+          "title": "Instruções de uso",
+          "type": "string",
+          "widget": {
+            "ui:widget": "draftjs-rich-text"
+          }
+        },
+        "beginDate": {
+          "title": "Exibição programada: Data de início",
+          "type": "string",
+          "widget": {
+            "ui:widget": "date-time"
+          }
+        },
+        "endDate": {
+          "title": "Exibição programada: Data de fim",
+          "type": "string",
+          "widget": {
+            "ui:widget": "date-time"
+          }
+        },
+        "destination": {
+          "title": "Destino",
+          "type": "string",
+          "enum": [
+            "Collection",
+            "Category",
+            "Product",
+            "Search",
+            "Link",
+            "AppPage"
+          ]
+        },
+        "destinationId": {
+          "title": "ID ou termo de busca relativo ao destino",
+          "type": "string"
+        },
+        "appPageDestination": {
+          "title": "AppPage Destino",
+          "type": "string",
+          "enum": [
+            "Lojas"
+          ]
+        },
+        "children": {
+          "title": "Cupons progressivos",
+          "type": "array",
+          "items": {
+            "title": "Cupom",
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "Nome",
+                "type": "string"
+              },
+              "active": {
+                "title": "Ativo",
+                "type": "boolean",
+                "default": false
+              },
+              "image": {
+                "title": "Imagem",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "image-uploader"
+                }
+              },
+              "size": {
+                "title": "Tamanho",
+                "type": "string",
+                "enum": [
+                  "800x250",
+                  "800x520"
+                ]
+              },
+              "type": {
+                "title": "Tipo",
+                "type": "string",
+                "enum": [
+                  "PercentageDiscountCoupon",
+                  "FixedValueCoupon",
+                  "FreeShipping",
+                  "ProgressiveCoupon"
+                ]
+              },
+              "warningText": {
+                "title": "Texto de Aviso",
+                "type": "string"
+              },
+              "discountValue": {
+                "title": "Texto do Valor do Desconto",
+                "type": "string"
+              },
+              "code": {
+                "title": "Código",
+                "type": "string"
+              },
+              "usageRules": {
+                "title": "Regras de uso",
+                "type": "string"
+              },
+              "usageInstructions": {
+                "title": "Instruções de uso",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "draftjs-rich-text"
+                }
+              },
+              "beginDate": {
+                "title": "Exibição programada: Data de início",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "date-time"
+                }
+              },
+              "endDate": {
+                "title": "Exibição programada: Data de fim",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "date-time"
+                }
+              },
+              "destination": {
+                "title": "Destino",
+                "type": "string",
+                "enum": [
+                  "Collection",
+                  "Category",
+                  "Product",
+                  "Search",
+                  "Link",
+                  "AppPage"
+                ]
+              },
+              "destinationId": {
+                "title": "ID ou termo de busca relativo ao destino",
+                "type": "string"
+              },
+              "appPageDestination": {
+                "title": "AppPage Destino",
+                "type": "string",
+                "enum": [
+                  "Lojas"
+                ]
+              },
+              "children": {
+                "title": "Cupons progressivos",
+                "type": "array",
+                "items": {
+                  "title": "Cupom",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "title": "Nome",
+                      "type": "string"
+                    },
+                    "active": {
+                      "title": "Ativo",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "image": {
+                      "title": "Imagem",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "image-uploader"
+                      }
+                    },
+                    "size": {
+                      "title": "Tamanho",
+                      "type": "string",
+                      "enum": [
+                        "800x250",
+                        "800x520"
+                      ]
+                    },
+                    "type": {
+                      "title": "Tipo",
+                      "type": "string",
+                      "enum": [
+                        "PercentageDiscountCoupon",
+                        "FixedValueCoupon",
+                        "FreeShipping",
+                        "ProgressiveCoupon"
+                      ]
+                    },
+                    "warningText": {
+                      "title": "Texto de Aviso",
+                      "type": "string"
+                    },
+                    "discountValue": {
+                      "title": "Texto do Valor do Desconto",
+                      "type": "string"
+                    },
+                    "code": {
+                      "title": "Código",
+                      "type": "string"
+                    },
+                    "usageRules": {
+                      "title": "Regras de uso",
+                      "type": "string"
+                    },
+                    "usageInstructions": {
+                      "title": "Instruções de uso",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "draftjs-rich-text"
+                      }
+                    },
+                    "beginDate": {
+                      "title": "Exibição programada: Data de início",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "date-time"
+                      }
+                    },
+                    "endDate": {
+                      "title": "Exibição programada: Data de fim",
+                      "type": "string",
+                      "widget": {
+                        "ui:widget": "date-time"
+                      }
+                    },
+                    "destination": {
+                      "title": "Destino",
+                      "type": "string",
+                      "enum": [
+                        "Collection",
+                        "Category",
+                        "Product",
+                        "Search",
+                        "Link",
+                        "AppPage"
+                      ]
+                    },
+                    "destinationId": {
+                      "title": "ID ou termo de busca relativo ao destino",
+                      "type": "string"
+                    },
+                    "appPageDestination": {
+                      "title": "AppPage Destino",
+                      "type": "string",
+                      "enum": [
+                        "Lojas"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "active",
+                    "size",
+                    "type",
+                    "usageRules"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "active",
+              "size",
+              "type",
+              "usageRules"
+            ]
+          }
+        }
+      },
+      "required": [
+        "active",
+        "size",
+        "type",
+        "usageRules"
+      ]
+    }
+  },
+  {
+    "name": "lpRichText",
+    "requiredScopes": [
+      "landingPage"
+    ],
+    "schema": {
+      "title": "Bloco de Texto Formatado | Landing Page",
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Ativo",
+          "type": "boolean",
+          "default": true
+        },
+        "richText": {
+          "title": "Rich text",
+          "type": "string",
+          "widget": {
+            "ui:widget": "draftjs-rich-text"
+          }
+        },
+        "backgroundColor": {
+          "title": "Cor de fundo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "richText"
+      ]
+    }
+  }
+]
